@@ -110,7 +110,8 @@ file_env 'S3_KEY'
 file_env 'S3_SECRET'
 
 # Run IN/Laravel stuff
-if [[ "$1" == "supervisord" ]] || [[ "$1" == "php-fpm" ]]; then
+# patch this file so it executes invoiceninja init even if supervisord is $2
+if [[ "$1" == "supervisord" ]] || [[ "$2" == "supervisord" ]] || [[ "$1" == "php-fpm" ]]; then
     in_log INFO "Initialising Invoice Ninja..."
     . invoiceninja-init.sh
 fi

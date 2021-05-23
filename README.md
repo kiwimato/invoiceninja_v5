@@ -4,6 +4,21 @@
 [![Artifact HUB](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/invoiceninja)](https://artifacthub.io/packages/search?repo=invoiceninja)
 
 
+# UnRAID Docker image
+This is just a wrapper over the original Docker image created by [Invoice Ninja](https://www.invoiceninja.com/) so it works in UnRAID.
+
+## Upgrade from v4 to v5
+If you already have Invoice Ninja v4 on UnRAID:
+   * Run this image on a whole new database while providing credentials `IN_USER_EMAIL` and `IN_PASSWORD` which match the v4 one. 
+     This is a requirement for the migration tool to work.
+   * Use [this how to](https://invoiceninja.github.io/docs/migration/)
+     Note: Since the certificate over HTTPS is self signed, you'll have to migrate over HTTP, or import the certs in the v4 container. 
+     Otherwise, the migration will fail with `Whoops, looks like something went wrong.`
+     
+### TODO
+ * Add ability to specify custom SSL certificates (maybe mounted from storage dir?)
+ * Create yaml GitHub Actions build & push for the Docker image
+
 # Docker for [Invoice Ninja](https://www.invoiceninja.com/)
 
 :crown: **Features**
