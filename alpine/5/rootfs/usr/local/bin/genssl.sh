@@ -19,7 +19,14 @@ fi
 openssl genrsa 4096 > $DIR/invoiceninja.key
 
 # Create the self-signed certificate for all invoiceninja
-openssl req -new -x509 -nodes -sha256 -days 3650 -key $DIR/invoiceninja.key << ANSWERS > $DIR/invoiceninja.crt
+openssl req -new \
+            -x509 \
+            -nodes \
+            -sha256 \
+            -days 3650 \
+            -addext "subjectAltName = DNS:${SSL_HOSTNAME}" \
+            -key $DIR/invoiceninja.key \
+            << ANSWERS > $DIR/invoiceninja.crt
 JP
 NinjaTown
 NinjaCity
