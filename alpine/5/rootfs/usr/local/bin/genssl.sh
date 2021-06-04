@@ -40,3 +40,6 @@ Me
 $SSL_HOSTNAME
 admin@localhost
 ANSWERS
+
+ln -s "$STORAGE/invoiceninja.crt" "$DIR/invoiceninja.crt"
+ln -s "$STORAGE/invoiceninja.key" "$DIR/invoiceninja.key"
