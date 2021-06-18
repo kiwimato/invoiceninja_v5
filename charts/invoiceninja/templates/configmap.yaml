@@ -13,20 +13,25 @@ metadata:
   {{- end }}
 data:
   {{- if .Values.nginx.ingress.enabled }}
+  {{- if .Values.nginx.ingress.tls }}
+  APP_URL: "https://{{ .Values.nginx.ingress.hostname }}"
+  {{- else }}
   APP_URL: "http://{{ .Values.nginx.ingress.hostname }}"
+  {{- end }}
   {{- else }}
   APP_URL: "http://{{ include "common.names.fullname" . }}"
   {{- end }}
   APP_DEBUG: {{ .Values.debug | quote }}
-  DB_HOST1: {{ include "invoiceninja.databaseHost" . | quote }}
-  DB_PORT1: {{ include "invoiceninja.databasePort" . | quote }}
-  DB_USERNAME1: {{ include "invoiceninja.databaseUser" . | quote }}
-  DB_DATABASE1: {{ include "invoiceninja.databaseName" . | quote }}
+  DB_HOST: {{ include "invoiceninja.databaseHost" . | quote }}
+  DB_PORT: {{ include "invoiceninja.databasePort" . | quote }}
+  DB_USERNAME: {{ include "invoiceninja.databaseUser" . | quote }}
+  DB_DATABASE: {{ include "invoiceninja.databaseName" . | quote }}
   {{- if .Values.logChannel }}
   LOG_CHANNEL: {{ .Values.logChannel | quote }}
   {{- else }}
   LOG_CHANNEL: stderr
   {{- end }}
+  MAIL_MAILER: {{ .Values.mailer | quote }}
   {{- if .Values.broadcastDriver }}
   BROADCAST_DRIVER: {{ .Values.broadcastDriver | quote }}
   {{- else if or .Values.redis.enabled .Values.externalRedis.host }}
@@ -56,3 +61,5 @@ data:
   REDIS_CACHE_CONNECTION: {{ include "invoiceninja.redisCacheConnection" . | quote }}
   REDIS_QUEUE_CONNECTION: {{ include "invoiceninja.redisQueueConnection" . | quote }}
   SESSION_CONNECTION: {{ include "invoiceninja.redisSessionConnection" . | quote }}
+  REQUIRE_HTTPS: {{ .Values.requireHttps | quote }}
+  TRUSTED_PROXIES: {{ .Values.trustedProxies | quote }}
