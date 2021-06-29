@@ -1,7 +1,12 @@
 #!/bin/sh
+# Remove .env file since we pass env variables instead.
+if [ -f /var/www/app/.env ]; then
+    rm -rf /var/www/app/.env
+fi
+
 # Create a link to .env file so that APP_KEY is persistent across container updates
 # To update it, simply remove the file and it will be regenerate on next boot
-if [[ ! -f /var/www/app/.env ]]; then
+if [[ ! -f /var/www/app/storage/.env ]]; then
   touch /var/www/app/storage/.env
 
   if [[ "$(cat /var/www/app/storage/.env | grep APP_KEY)" == "" ]];then
