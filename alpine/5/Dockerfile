@@ -28,7 +28,7 @@ RUN npm install --production \
     && mv /var/www/app/public $BAK_PUBLIC_PATH  
 
 # Prepare php image
-FROM php:${PHP_VERSION}-fpm-alpine as prod
+FROM php:${PHP_VERSION}-fpm-alpine3.13 as prod
 ARG INVOICENINJA_VERSION
 ARG BAK_STORAGE_PATH
 ARG BAK_PUBLIC_PATH
@@ -88,8 +88,7 @@ WORKDIR /var/www/app
 
 # Do not remove this ENV
 ENV IS_DOCKER true
-RUN /usr/local/bin/composer install --no-dev --quiet \
-    && rm .env
+RUN /usr/local/bin/composer install --no-dev --quiet
 
 # Override the environment settings from projects .env file
 ENV APP_ENV production
