@@ -42,3 +42,8 @@ if [ ! -f /var/www/app/storage/.initialized ]; then
     docker_process_init_files /docker-entrypoint-init.d/*
     touch /var/www/app/storage/.initialized
 fi
+
+# Remove .env file since we pass env variables instead.
+if [ -f /var/www/app/.env ]; then
+    rm -rf /var/www/app/.env
+fi
