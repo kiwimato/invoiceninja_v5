@@ -6,7 +6,8 @@ COPY 5/rootfs /
 RUN apk update && \
     apk add nginx && \
     mkdir -p /run/nginx /var/www/app/public /var/www/app/public/storage/backups && \
-    chown -R www-data:www-data /var/lib/nginx/tmp /var/lib/nginx /var/www/app/
+    chown -R www-data:www-data /var/lib/nginx/tmp /var/lib/nginx /var/www/app/ && \
+    rm -rf /var/www/app/.env
 
 EXPOSE 80
 
