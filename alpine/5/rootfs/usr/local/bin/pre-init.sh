@@ -10,6 +10,11 @@ if [[ ! -f /var/www/app/storage/.env ]]; then
   fi
 fi
 
+if [[ $MEMORY_LIMIT ]]; then
+  echo "Updating php.ini with memory_limit = $MEMORY_LIMIT"
+  sed -i -e "s/memory_limit = 256M/memory_limit = $MEMORY_LIMIT/g" /usr/local/etc/php/php.ini
+fi
+
 export "$(grep APP_KEY /var/www/app/storage/.env)"
 
 php artisan config:cache

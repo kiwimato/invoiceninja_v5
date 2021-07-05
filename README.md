@@ -7,6 +7,17 @@
 # UnRAID Docker image
 This is just a wrapper over the original Docker image created by [Invoice Ninja](https://www.invoiceninja.com/) so it works in UnRAID.
 
+## memory_limit
+In case the container dies due to memory_limit errors similar to:
+```
+PHP Fatal error: Allowed memory size of 268435456 bytes exhausted
+```
+You can override the memory limit by passing an environment variable called MEMORY_LIMIT.
+Example:
+```
+MEMORY_LIMIT=512M
+```
+
 ## Upgrade from v4 to v5
 If you already have Invoice Ninja v4 on UnRAID:
    * Run this image on a whole new database while providing credentials `IN_USER_EMAIL` and `IN_PASSWORD` which match the v4 one. 
@@ -15,10 +26,6 @@ If you already have Invoice Ninja v4 on UnRAID:
      Note: Since the certificate over HTTPS is self signed, you'll have to migrate over HTTP, or import the certs in the v4 container. 
      Otherwise, the migration will fail with `Whoops, looks like something went wrong.`
      
-### TODO
- * Add ability to specify custom SSL certificates (maybe mounted from storage dir?)
- * Create yaml GitHub Actions build & push for the Docker image
-
 # Docker for [Invoice Ninja](https://www.invoiceninja.com/)
 
 :crown: **Features**
