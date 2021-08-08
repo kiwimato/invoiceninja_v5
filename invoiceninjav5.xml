@@ -10,7 +10,7 @@
   <Overview>Invoice Ninja v5: an open-source invoicing and time-tracking app built with Laravel https://www.invoiceninja.com.
     This container requires a separate MySQL running container and the credentials passed via DB_* variables below.
     SSL certificates are generated automatically and stored in certs/ folder in Storage as invoiceninja.crt and invoiceninja.key. Feel free to overwrite this files with others, if you use LetsEncrypt for example.
-    When migrating for v4 to v5 please follow this tutorial: https://github.com/kiwimato/invoiceninja_v5#upgrade-from-v4-to-v5
+    When migrating for v4 to v5 please follow this tutorial: https://github.com/kiwimato/invoiceninja_v5/blob/master/UnRAID.md#upgrade-from-v4-to-v5
   </Overview>
   <Category>Productivity: Tools:</Category>
   <WebUI>https://[IP]:[PORT:8443]/</WebUI>
