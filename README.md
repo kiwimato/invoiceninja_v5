@@ -3,28 +3,6 @@
 [![Docker image, alpine](https://img.shields.io/docker/image-size/invoiceninja/invoiceninja/alpine?label=alpine)](https://hub.docker.com/r/invoiceninja/invoiceninja)
 [![Artifact HUB](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/invoiceninja)](https://artifacthub.io/packages/search?repo=invoiceninja)
 
-
-# UnRAID Docker image
-This is just a wrapper over the original Docker image created by [Invoice Ninja](https://www.invoiceninja.com/) so it works in UnRAID.
-
-## memory_limit
-In case the container dies due to memory_limit errors similar to:
-```
-PHP Fatal error: Allowed memory size of 268435456 bytes exhausted
-```
-You can override the memory limit by passing an environment variable called MEMORY_LIMIT.
-Example:
-```
-MEMORY_LIMIT=512M
-```
-
-## Upgrade from v4 to v5
-If you already have Invoice Ninja v4 on UnRAID:
-   * Run this image on a whole new database while providing credentials `IN_USER_EMAIL` and `IN_PASSWORD` which match the v4 one. 
-     This is a requirement for the migration tool to work.
-   * Use [this how to](https://invoiceninja.github.io/docs/migration/)
-     Note: Since the certificate over HTTPS is self signed, you'll have to migrate over HTTP, or import the certs in the v4 container. 
-     Otherwise, the migration will fail with `Whoops, looks like something went wrong.`
      
 # Docker for [Invoice Ninja](https://www.invoiceninja.com/)
 
