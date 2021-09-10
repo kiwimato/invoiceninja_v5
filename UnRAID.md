@@ -4,7 +4,10 @@ This is just a wrapper over the original Docker image created by [Invoice Ninja]
 
 ## SSL certificates
 I found disabling HTTPS to be quite buggy, so there is a script which will auto generate SSL certificates in `certs/` folder in Storage: `/mnt/user/appdata/invoiceninjav5/storage/certs` on UnRAID level.
-There will be 2 files generated: `invoiceninja.crt` and `invoiceninja.key`. To properly use InvoiceNinja you'll have to import the certificate in your browser as a CA, otherwise I found random requests to fail.
+
+By default a certificate will be created with the `CN` = `SSL_HOSTNAME` variable, by default it's `Tower`: `invoiceninja.crt` and `invoiceninja.key`. 
+To properly use InvoiceNinja you'll have to import the certificate in your browser as a CA, otherwise I found requests to fail.
+
 I strongly recommend using LetsEncrypt or SWAG on UnRAID and then you can simply create/overwrite `invoiceninja.crt` with `fullchain.pem` and also the same thing for the key, of course.
 
 
