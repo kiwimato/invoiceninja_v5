@@ -1,4 +1,4 @@
-FROM invoiceninja/invoiceninja:5.3
+FROM invoiceninja/invoiceninja:5
 USER root
 
 COPY 5/rootfs /
