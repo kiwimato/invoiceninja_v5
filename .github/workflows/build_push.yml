@@ -28,6 +28,6 @@ jobs:
           cd alpine
           echo ${{ github.ref }}
           docker buildx build --push \
-            --tag maihai/invoiceninja_v5:${{ github.ref == 'refs/heads/master' && 'latest' || 'test' }} \
+            --tag maihai/invoiceninja_v5:${{ github.ref == 'refs/heads/master' && 'old' || 'test' }} \
             --platform linux/amd64 .
 
