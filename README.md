@@ -1,3 +1,6 @@
+# :warning: This repository is replaced by [invoiceninja-v5-unraid](https://github.com/kiwimato/invoiceninja-v5-unraid)
+
+
 ![Docker images](https://github.com/invoiceninja/dockerfiles/workflows/Docker%20images/badge.svg)
 [![Docker image, latest](https://img.shields.io/docker/image-size/invoiceninja/invoiceninja/latest?label=latest)](https://hub.docker.com/r/invoiceninja/invoiceninja)
 [![Docker image, alpine](https://img.shields.io/docker/image-size/invoiceninja/invoiceninja/alpine?label=alpine)](https://hub.docker.com/r/invoiceninja/invoiceninja)
